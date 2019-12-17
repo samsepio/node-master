@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>PublicPhotho</title>
+                <link rel="stylesheet" href="/css/style.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        </head>
+        <body class="animated flipInY">
+                <nav class="navbar navbar-light"style="background-color: #e3f2fd;">
+                        <a class="navbar-brand"href="/">Inicio</a>
+                        <a class="navbar-brand"href="/signup">Registrate</a>
+                        <a class="navbar-brand"href="/signin">Inicia Secion</a>
+                </nav>
+                <h1><center>Perfil</center></h1>
+		<div class="card mb-3 mx-auto" style="max-width: 540px;">
+			<div class="row no-gutters mx-auto">
+				<div class="col-md-4 mx-auto">
+					<img src="<%= images.path  %>" class="card-img" alt="<%= images.filename  %>">
+
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title">Perfil Completo</h5>
+						<p class="card-text">Nombre: <%= images.name %></p>
+						<p class="card-text">Edad: <%= images.year %></p>
+						<p class="card-text">Religion: <%= images.religion %></p>
+						<p class="card-text">Persona Favorita: <%= images.favorite  %></p>
+						<p class="card-text">El Se Describe: <%= images.descript  %></p>
+						<p class="card-text"><small class="text-muted">Subido hace <%=format(images.created_at)%></small></p>
+						<a class="btn btn-danger btn-block"href="/delete/<%= images._id %>">Eliminar</a>
+					</div>
+				</div>
+				 <div class="col-md-8 mx-auto">
+                                        <div class="card-body mx-auto">
+						<p>
+						Likes <span class="likes-count"id="likes">5</span>
+						<i class="fas fa-heart"></i>
+						</p>
+						<p>
+						Visitas Al Perfil <span class="likes-count"id="views">10</span>
+						<i class="fas fa-eye"></i>
+						</p>
+						<p>
+					</div>
+				 </div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>PublicPhotho</title>
+                <link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        </head>
+        <body class="animated flipInY">
+                <nav class="navbar navbar-light"style="background-color: #e3f2fd;">
+                        <a class="navbar-brand"href="/">Inicio</a>
+                        <a class="navbar-brand"href="/signup">Registrate</a>
+                        <a class="navbar-brand"href="/signin">Inicia Secion</a>
+                </nav>
+                <center><h1>Registrate</h1></center>
+                <div class="card mx-auto"style="width: 18rem;">
+			<div class="card-body mx-auto">
+				<center>
+					<i class="fas fa-images"></i>
+				</center>
+				<form action="/signup"method="POST">
+					<label>Email</label>
+					<input type="email"class="form-control"name="email"placeholder="Correo Electronico">
+					<label>Usuario</label>
+					<input type="text"class="form-control"name="user"placeholder="Nombre De Usuario">
+					<label>Contraseña</label>
+					<input type="password"class="form-control"name="password"placeholder="Ingrese Una Contraseña">
+					<br><button class="btn btn-primary btn-block">Registrarme</button>
+					<br><a class="card-link"href="/signin">Ya Tengo Una Cuenta</a>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+

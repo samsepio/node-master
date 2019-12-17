@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>PublicPhotho</title>
+                <link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        </head>
+        <body>
+                <nav class="navbar navbar-dark btn-dark">
+                        <a class="navbar-brand"href="/">salir</a>
+                        <a class="navbar-brand"href="/chat">chat</a>
+                        <a class="navbar-brand"href="/profile">subir foto</a>
+                </nav>
+		<h1><center>Perfiles</center></h1>
+		<div class="container p-4">
+			<div class="row">
+				<div class="card-columns">
+					<% images.forEach(function (image) { %>
+					<div class="card animated fadeInDown">
+						<img src="<%= image.path %>" class="card-img-top" alt="<%= image.filename %>">
+						<div class="card-body">
+							<h5 class="card-subtitle"><%= image.title  %></h5>
+							<p class="card-text"><%= image.description %></p>
+							<p class="card-text">Subido Hace <%=format(image.created_at)%>
+							<i class="fas fa-clock"></i>
+							</p>
+							<a class="btn <%= image.status ? 'btn-success':'btn-dark' %>"href="/like/<%= image._id %>">
+								<i class="fas fa-thumbs-up"></i>Me Gusta
+							</a>
+							<a class="btn btn-warning"href="/img/<%= image._id %>">
+								<i class="fas fa-question-circle"></i>Ver Mas
+							</a>
+						</div>
+					</div>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
