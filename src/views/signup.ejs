@@ -18,9 +18,9 @@
                 <center><h1>Registrate</h1></center>
                 <div class="card mx-auto"style="width: 18rem;">
 			<div class="card-body mx-auto">
-				<center>
-					<i class="fas fa-images"></i>
-				</center>
+				<% if(signupMessage){ %>
+                                 <span><%= signupMessage  %></span>
+                                <% } %>
 				<form action="/signup"method="POST">
 					<i class="fas fa-envelope"></i><label>Email</label>
 					<input type="email"class="form-control"name="email"placeholder="Correo Electronico">

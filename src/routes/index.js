@@ -2,6 +2,7 @@ const express=require('express');
 const User=require('../model/database');
 const Image=require('../model/database2');
 const path=require('path');
+const passport=require('passport');
 const {unlink}=require('fs-extra');
 const router=express.Router();
 
@@ -11,12 +12,19 @@ router.get('/',(req,res,next)=>{
 router.get('/signup',(req,res,next)=>{
 	res.render('signup');
 });
-router.post('/signup',async(req,res,next)=>{
-	const user = new User(req.body);
-	await user.save();
-	console.log(user);
-	res.redirect('/profile');
+router.post('/signup',passport.authenticate('local-signup',{
+	successRedirect: '/profile',
+	failureRedirect: '/signup',
+	passReqToCallback: true
+}));
+router.get('/signin',(req,res,next)=>{
+	res.render('signin');
 });
+router.post('/signin',passport.authenticate('local-signin',{
+	successRedirect: '/directory',
+	failureRedirect: '/signin',
+	passReqToCallback: true
+}));
 router.get('/profile',async(req,res,next)=>{
 	res.render('profile');
 });
