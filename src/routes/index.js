@@ -25,8 +25,23 @@ router.post('/signin',passport.authenticate('local-signin',{
 	failureRedirect: '/signin',
 	passReqToCallback: true
 }));
-router.get('/profile',async(req,res,next)=>{
+//nos desautenticamos esto para serrar la secion y que cuando otra persona se quiera volber la secion de la persona pasada no quede habierta
+router.get('/logout',(req,res,next) => {
+	req.logout();
+	res.redirect('/');
+});
+
+//le decimos que las rutas de hay para vajo tiene que estar autenticadas para que puedan ingresar a la ruta y si no que me lo redireccione a signin esto lo hisimos en la funcion de habajo
+router.use((req,res,next) => {
+	isAuthenticated(req, res, next);
+	next();
+});
+
+router.get('/profile',(req,res,next)=>{
 	res.render('profile');
+});
+router.get('/chat',(req,res,next)=>{
+	res.render('chat');
 });
 router.get('/directory',async(req,res,next)=>{
 	const images = await Image.find();
@@ -72,5 +87,13 @@ router.get('/img/:id',async(req,res,next)=>{
 		images
 	});
 });
+
+//si el usuario esta autenticado nos devuelve true y sigue con la siguiente ruta  si no me redirecciona a la ventana de signin para que inicie secion
+function isAuthenticated(req, res, next){
+	if(req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/signin');
+};
 
 module.exports=router;
